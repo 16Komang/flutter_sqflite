@@ -32,7 +32,7 @@ class _EntryFormState extends State<EntryForm> {
           padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
           child: ListView(
             children: [
-              // nama
+              // nama barang
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -50,7 +50,7 @@ class _EntryFormState extends State<EntryForm> {
                 ),
               ),
 
-              // harga
+              // harga barang
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -63,13 +63,15 @@ class _EntryFormState extends State<EntryForm> {
                     ),
                   ),
                   onChanged: (value) {},
+                  // TODO: method untuk form harga barang
                 ),
               ),
-
+              // tombol button
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: Row(
                   children: <Widget>[
+                    // tombol simpan
                     Expanded(
                       child: ElevatedButton(
                         child: const Text(
@@ -78,7 +80,7 @@ class _EntryFormState extends State<EntryForm> {
                         ),
                         onPressed: () {
                           if (item == null) {
-                            // Tambah Data
+                            // tambah Data
                             item = Item(
                               nameController.text,
                               int.parse(priceController.text),

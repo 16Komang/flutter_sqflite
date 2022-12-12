@@ -39,8 +39,7 @@ class _HomeState extends State<Home> {
               child: Text("Tambah Item"),
               onPressed: () async {
                 var item = await navigateToEntryForm(context, null);
-                if (item != null) {
-                  //TODO 2 Panggil Fungsi untuk Insert ke DB
+                if (item != null) { 
                   int result = await dbHelper.insert(item);
                   if (result > 0) {
                     updateListView();
@@ -79,7 +78,6 @@ class _HomeState extends State<Home> {
               this.itemList![index].name,
               style: textStyle,
             ),
-            // subtitle: Text(this.itemList![index].price.toString()),
             subtitle: Row(
               children: <Widget>[
                 Expanded(
@@ -90,7 +88,7 @@ class _HomeState extends State<Home> {
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {
-                //TODO 3 Panggil Fungsi untuk Delete dari DB berdasarkan Item
+                // 3 TODO: delete by id
                 int result = await dbHelper.delete(this.itemList![index].id);
                 if (result > 0) {
                   updateListView();
@@ -100,7 +98,7 @@ class _HomeState extends State<Home> {
             onTap: () async {
               var item =
                   await navigateToEntryForm(context, this.itemList![index]);
-              //TODO 4 Panggil Fungsi untuk Edit data
+              // 4 TODO: edit by id
               if (item != null) {
                 int result = await dbHelper.update(item);
                 if (result > 0) {
@@ -114,7 +112,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-//update List item
+// TODO: get all item from DB
   void updateListView() {
     final Future<Database> dbFuture = dbHelper.initDb();
     dbFuture.then((database) {

@@ -16,10 +16,10 @@ class DbHelper {
 
     //create, read databases
     var itemDatabase = openDatabase(path, version: 1, onCreate: _createDb);
-
+    //mengembalikan nilai object sebagai hasil dari fungsinya
     return itemDatabase;
   }
-
+  //buat tabel baru dengan nama item
   void _createDb(Database db, int version) async {
     await db.execute('''
       CREATE TABLE item (
@@ -28,13 +28,6 @@ class DbHelper {
       price INTEGER
       )
   ''');
-  }
-
-  // select databases
-  Future<List<Map<String, dynamic>>> select() async {
-    Database db = await this.initDb();
-    var mapList = await db.query('item', orderBy: 'name');
-    return mapList;
   }
 
   // create databases
@@ -59,6 +52,7 @@ class DbHelper {
     return count;
   }
 
+  // Read all items
   Future<List<Item>> getItemList() async {
     var itemMapList = await select();
     int count = itemMapList.length;
@@ -68,6 +62,13 @@ class DbHelper {
       itemList.add(Item.fromMap(itemMapList[i]));
     }
     return itemList;
+  }
+
+   // Read a single item by id
+  Future<List<Map<String, dynamic>>> select() async {
+    Database db = await this.initDb();
+    var mapList = await db.query('item', orderBy: 'name');
+    return mapList;
   }
 
   factory DbHelper() {
