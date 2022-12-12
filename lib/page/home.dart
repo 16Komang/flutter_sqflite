@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text("Tambah Item"),
+              child: Text("Komang|2041720225"),
               onPressed: () async {
                 var item = await navigateToEntryForm(context, null);
                 if (item != null) {
