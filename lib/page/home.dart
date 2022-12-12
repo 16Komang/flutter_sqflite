@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Daftar Item'),
+        title: Text('Komang|2041720225'),
       ),
       body: Column(children: [
         Expanded(
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text("Komang|2041720225"),
+              child: Text("Tambah Item"),
               onPressed: () async {
                 var item = await navigateToEntryForm(context, null);
                 if (item != null) {
